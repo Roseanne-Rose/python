@@ -1,0 +1,19 @@
+f=open(r"C:\Users\Rose\Desktop\bill.txt","r",encoding="UTF-8")
+content = f.readlines()
+f.close()
+f2=open(r"C:\Users\Rose\Desktop\bill.bak.txt","w",encoding="UTF-8")
+for line in content:
+     line =line.strip()
+     name,date,money,type_,status =line.split(",")
+     if status=="测试":
+         continue
+     else:
+         f2.write(line+'\n')
+         f2.flush()
+f2.close()
+f2=open(r"C:\Users\Rose\Desktop\bill.bak.txt","r",encoding="UTF-8")
+content2=f2.readlines()
+f2.close()
+print(content2)
+# for line in content2:
+#     print(f"{line}\n")
