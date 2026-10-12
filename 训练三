@@ -1,0 +1,32 @@
+# 第一题
+# content =input("输入一个字符串：")
+# content1=list(content)
+# max_str=''
+# for start in range(len(content1)):
+#         current_list=''
+#         for j in range(start,len(content1)):
+#             char=content1[j]
+#             if char in current_list:
+#                 break
+#             current_list=current_list+char
+#             if len(max_str)<len(current_list):
+#                 max_str=current_list
+# print(f"字符串为：{max_str},长度为：{len(max_str)}")
+content =input("输入一个字符串：")
+content1=list(content)
+max_str=''
+for start in range(len(content1)):
+        current_list=''
+        for j in range(start,len(content1)):
+            char=content1[j]
+            current_list = current_list + char
+            res=''.join(reversed(current_list))
+
+            if current_list != res:
+
+                continue
+
+            if len(max_str)<len(current_list):
+                max_str=current_list
+
+print(f"字符串为：{max_str},长度为：{len(max_str)}")
