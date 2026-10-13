@@ -1,0 +1,57 @@
+# list_input =[1,8,6,2,5,4,8,3,7]
+# left=0
+# max_sum=0
+# right=len(list_input)-1
+# while left<right:
+#     current=min(list_input[left],list_input[right])*(right-left)
+#
+#     if max_sum<current:
+#         max_sum=current
+#     if list_input[left]<=list_input[right]:
+#         left=left+1
+#     else:
+#         right=right-1
+# print(max_sum)
+def match_case(num,list_out):
+
+    match num:
+        case x if 0 < x <= 5:
+            list_out.append('I' *x)
+
+        case x if 5 < x <= 10:
+            f=x//5
+            list_out.append('V' * f)
+            match_case(x-f*5,list_out)
+
+        case x if 10<x<=50:
+            e=x//10
+            list_out.append('X' * e)
+            match_case(x-e*10,list_out)
+        case x if 50<x<100:
+            d=x//50
+            list_out.append('L' * d)
+            match_case(x-d*50,list_out)
+
+        case x if 100 < x <= 500:
+            c=x//100
+            list_out.append('C' * c)
+            match_case(x-c*100,list_out)
+
+        case x if 500 < x < 1000:
+            b=x//500
+            list_out.append('D'*b)
+            match_case(x-b*500,list_out)
+
+        case x if x >1000:
+            a=x//1000
+            list_out.append('M'*a)
+            match_case(x-a*1000,list_out)
+def main():
+    list_out = []
+    print("请输入一个数")
+    a = int(input())
+    match_case(a,list_out)
+    print(list_out)
+# 第4行：Python 读到这里，发现是一个“函数调用”，它才会立刻跳回上面 main 函数里，开始执行里面的代码。
+if __name__ == "__main__":
+    main()
